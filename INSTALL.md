@@ -1,0 +1,17 @@
+ #### Setup postgresql Database
+
+```bash
+sudo -i -u postgres psql
+```
+
+```sql
+CREATE DATABASE talking;
+CREATE ROLE talkinguser WITH LOGIN ENCRYPTED PASSWORD 'PASSWORD';
+GRANT CONNECT ON DATABASE talking TO talkinguser;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO talkinguser;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, USAGE ON SEQUENCES TO talkinguser;
+
+```
+
+
+
